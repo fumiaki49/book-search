@@ -1,0 +1,117 @@
+body {
+  background-color: whitesmoke;
+}
+header {
+  width: 100%;
+  height: 100px;
+  color: white;
+  background-color: rgb(57, 163, 233);
+  text-align: center;
+  .modal-show {
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    top: 25px;
+    transition: 0.3s;
+  }
+  .modal-show:hover {
+    cursor: pointer;
+    color: #39a3e9;
+    border-color: #39a3e9;
+    background-color: white;
+  }
+  .site-title {
+    font-size: 30px;
+    line-height: 100px;
+    
+  }
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  &__content {
+    text-align: center;
+    width: 50%;
+    height: 500px;
+    padding: 6%;
+    box-sizing: border-box;
+    color: rgb(126, 125, 125);
+    background-color: whitesmoke;
+    box-shadow: 0 1px 5px #ccc;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    &__close-btn {
+      padding: 10px;
+      width: 15px;
+      height: 15px;
+      border: 1px solid rgb(126, 125, 125);
+      border-radius: 50%;
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      transition: 0.3s;
+    }
+    &__close-btn:hover {
+      cursor: pointer;
+      color: white;
+      border-color: white;
+      background-color: rgb(126, 125, 125);
+    }
+  }
+}
+
+
+.search {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 5px #ccc;
+  &__inputArea {
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
+    display: inline-flex;
+    &__inputWord {
+      width: 100%;
+      font-size: 20px;
+      padding: 10px;
+      border: 1px solid;
+      border-color: #39a3e9;
+    }
+    &__btn {
+      background-color: #39a3e9;
+      border-color: #39a3e9;
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+    &__inputWord, &__btn:focus {
+      outline: none;
+    }
+    &__btn:hover {
+      cursor: pointer;
+      background-color: #6bbaee;
+      border-color: #6bbaee;
+    }
+  }
+}
+
+.lists {
+  width: 100%;
+  height: 1000px;
+}
+.stickItem {
+  position: fixed;
+  top: 0;
+}
