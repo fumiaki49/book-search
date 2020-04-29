@@ -1,7 +1,8 @@
 $(function() {
   $(window).scroll(function() {
     var scroll = $(this).scrollTop();
-    if(scroll > 100) {
+    var headerBottom = $('header').height();
+    if(scroll > headerBottom) {
       $('.search').addClass('stickItem');
     } else {
       $('.search').removeClass('stickItem');
