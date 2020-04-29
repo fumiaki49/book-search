@@ -11,7 +11,7 @@ $(function() {
   $('.modal-show').click(function() {
     $('.modal').fadeIn();
   });
-  $('#close-modal-btn').click(function() {
+  $('#close-modal-btn, .modal').click(function() {
     $('.modal').fadeOut();
   })
 });
