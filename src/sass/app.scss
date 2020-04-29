@@ -44,6 +44,7 @@ header {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
   &__content {
     text-align: center;
     width: 50%;
@@ -90,6 +91,7 @@ header {
   width: 100%;
   background-color: white;
   box-shadow: 0 1px 5px #ccc;
+  position: absolute;
   &__inputArea {
     width: 80%;
     margin-top: 2%;
@@ -121,8 +123,39 @@ header {
 }
 
 .lists {
+  margin-top: 10%;
   width: 100%;
-  height: 1000px;
+  height: 100%;
+  list-style: none;
+  &__item {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 24%;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 5%;
+    &__inner {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    &__link {
+      display: block;
+      text-decoration: none;
+    }
+    &__img {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 150px;
+      box-shadow: 0 1px 5px #ccc;
+    }
+    &__detail {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: rgb(104, 101, 101);
+      text-align: left;
+    }
+  }
 }
 .stickItem {
   position: fixed;
