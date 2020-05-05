@@ -46,18 +46,17 @@ header {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
   &__content {
-    text-align: center;
-    width: 50%;
-    height: 450px;
-    padding: 6%;
+    width: 40%;
+    padding: 5%;
     box-sizing: border-box;
     color: rgb(126, 125, 125);
     background-color: whitesmoke;
     box-shadow: 0 1px 5px #ccc;
-    position: absolute;
-    top: 10%;
-    left: 25%;
+    margin: 0 auto;
+    margin-top: 5%;
+    position: relative;
     &__close-btn {
+      text-align: center;
       padding: 10px;
       width: 15px;
       height: 15px;
@@ -74,13 +73,13 @@ header {
       border-color: white;
       background-color: rgb(126, 125, 125);
     }
-    &__textBox {
+    &__textBox__greet {
+      font-size: 20px;
+      margin-bottom: 7%;
+    }
+    &__textBox__info {
       font-size: 15px;
-      line-height: 40px;
-      &__greet {
-        font-size: 25px;
-        margin-bottom: 5%;
-      }
+      line-height: 35px;  
     }
   }
 }
@@ -92,10 +91,12 @@ header {
   background-color: white;
   box-shadow: 0 1px 5px #ccc;
   position: absolute;
-  &__inputArea {
+  &__inner {
     width: 80%;
-    margin-top: 2%;
-    margin-left: 10%;
+    margin: 25px auto;
+  }
+  &__inputArea {
+    width: 100%;
     display: inline-flex;
     &__inputWord {
       width: 100%;
