@@ -9,6 +9,7 @@ $(function() {
     }
   });
 
+  
   $('.modal-show').click(function() {
     $('.modal').fadeIn();
   });
