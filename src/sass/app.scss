@@ -69,8 +69,8 @@ header {
     }
     &__close-btn:hover {
       cursor: pointer;
-      color: white;
-      border-color: white;
+      color: #fff;
+      border-color: #fff;
       background-color: rgb(126, 125, 125);
     }
     &__textBox__greet {
@@ -88,7 +88,7 @@ header {
 .search {
   height: 100px;
   width: 100%;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 1px 5px #ccc;
   position: absolute;
   &__inner {
@@ -108,7 +108,7 @@ header {
     &__btn {
       background-color: #39a3e9;
       border-color: #39a3e9;
-      color: white;
+      color: #fff;
       font-size: 15px;
       transition: 0.3s;
     }
@@ -144,6 +144,9 @@ header {
       display: block;
       text-decoration: none;
     }
+    &__link:hover {
+      opacity: 0.7;
+    }
     &__img {
       margin-bottom: 20px;
       width: 100%;
@@ -157,8 +160,24 @@ header {
       text-align: left;
     }
   }
+  & .error-message {
+    display: none;
+    text-align: center;
+    color: red;
+    & span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      border: 1px solid red;
+      border-radius: 50%;
+      padding: 5px;
+      margin-right: 10px;
+    }
+  }
 }
 .stickItem {
   position: fixed;
   top: 0;
+  z-index: 10;
 }

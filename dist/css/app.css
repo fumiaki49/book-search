@@ -61,8 +61,8 @@ header {
       transition: 0.3s; }
     .modal__content__close-btn:hover {
       cursor: pointer;
-      color: white;
-      border-color: white;
+      color: #fff;
+      border-color: #fff;
       background-color: #7e7d7d; }
     .modal__content__textBox__greet {
       font-size: 20px;
@@ -74,7 +74,7 @@ header {
 .search {
   height: 100px;
   width: 100%;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 1px 5px #ccc;
   position: absolute; }
   .search__inner {
@@ -92,7 +92,7 @@ header {
     .search__inputArea__btn {
       background-color: #39a3e9;
       border-color: #39a3e9;
-      color: white;
+      color: #fff;
       font-size: 15px;
       transition: 0.3s; }
     .search__inputArea__inputWord, .search__inputArea__btn:focus {
@@ -121,6 +121,8 @@ header {
     .lists__item__link {
       display: block;
       text-decoration: none; }
+    .lists__item__link:hover {
+      opacity: 0.7; }
     .lists__item__img {
       margin-bottom: 20px;
       width: 100%;
@@ -131,7 +133,21 @@ header {
       margin-bottom: 10px;
       color: #686565;
       text-align: left; }
+  .lists .error-message {
+    display: none;
+    text-align: center;
+    color: red; }
+    .lists .error-message span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      border: 1px solid red;
+      border-radius: 50%;
+      padding: 5px;
+      margin-right: 10px; }
 
 .stickItem {
   position: fixed;
-  top: 0; }
+  top: 0;
+  z-index: 10; }
