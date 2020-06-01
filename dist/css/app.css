@@ -7,13 +7,20 @@ body {
 .no-scroll {
   overflow: hidden; }
 
-header {
+.disabled {
+  cursor: default;
+  pointer-events: none; }
+
+.modal, .error-message {
+  display: none; }
+
+.header {
   width: 100%;
   height: 100px;
   color: #fff;
   background-color: #39a3e9;
   text-align: center; }
-  header .modal-show {
+  .header .modal-show {
     line-height: 50px;
     width: 50px;
     height: 50px;
@@ -23,19 +30,18 @@ header {
     right: 5%;
     top: 25px;
     transition: 0.3s; }
-  header .modal-show:hover {
+  .header .modal-show:hover {
     cursor: pointer;
     color: #39a3e9;
     border-color: #39a3e9;
     background-color: #fff; }
-  header .site-title {
+  .header .site-title {
     font-size: 30px;
     line-height: 100px; }
 
 .modal {
   width: 100%;
   height: 100%;
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -105,6 +111,11 @@ header {
       background-color: #6bbaee;
       border-color: #6bbaee; }
 
+.stickItem {
+  position: fixed;
+  top: 0;
+  z-index: 10; }
+
 .lists {
   margin-top: 15%;
   width: 100%;
@@ -116,14 +127,15 @@ header {
     width: 24%;
     vertical-align: top;
     text-align: center;
-    margin-bottom: 5%; }
+    margin-top: 5%; }
     .lists__item__inner {
       width: 100%;
       max-width: 200px;
       margin: 0 auto; }
     .lists__item__link {
       display: block;
-      text-decoration: none; }
+      text-decoration: none;
+      transition: 0.3s; }
     .lists__item__link:hover {
       opacity: 0.7; }
     .lists__item__img {
@@ -136,8 +148,9 @@ header {
       margin-bottom: 10px;
       color: #7e7d7d;
       text-align: left; }
+  .lists__item:nth-child(-n+4) {
+    margin-top: 0; }
   .lists .error-message {
-    display: none;
     text-align: center;
     color: #f80b0b; }
     .lists .error-message span {
@@ -150,7 +163,22 @@ header {
       padding: 5px;
       margin-right: 10px; }
 
-.stickItem {
-  position: fixed;
-  top: 0;
-  z-index: 10; }
+.pagenation {
+  width: 80%;
+  margin: 30px auto; }
+  .pagenation__inner-box {
+    display: flex;
+    justify-content: center; }
+    .pagenation__inner-box__btn {
+      font-size: 15px;
+      margin-left: 25px;
+      padding: 15px;
+      color: #7e7d7d;
+      border: 1px solid;
+      transition: 0.3s; }
+    .pagenation__inner-box__btn:first-child {
+      margin-left: 0; }
+    .pagenation__inner-box__btn:hover {
+      cursor: pointer;
+      background-color: #7e7d7d;
+      color: #fff; }

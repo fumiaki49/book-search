@@ -23,7 +23,7 @@ $(function() {
   //検索機能
   function searchBook(page) {
     var keyWord = $('#entered-word').val();
-    $('.lists').empty();
+    $('.lists, .pagenation').empty();
 
     $.ajax({
       url: 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404',
@@ -37,8 +37,9 @@ $(function() {
         hits: 20
       },
     }).done(function(data) {
-      console.log(data)
-      console.log(data.pageCount)
+      var currentPage = page
+      var pageMax = data.pageCount
+
       if(data.count > 0) {
         $.each(data.Items, function() {
           var template = `<li class="lists__item">
@@ -52,6 +53,12 @@ $(function() {
                           </li>`
           $('.lists').append(template);
         });
+
+        pager();
+        confirmationPageNumber(currentPage, pageMax);
+        moveNext(currentPage);
+        movePrev(currentPage);
+
       } else {
         $('.lists').append(`<li class="error-message"><span>!</span>検索結果が見つかりませんでした。</li>`);
         $('.error-message').stop().fadeIn();
@@ -67,7 +74,45 @@ $(function() {
       }
     })
   }
+
+  function pager() {
+    var pager_templagte = `<div class="pagenation">
+                              <ul class="pagenation__inner-box">
+                                <li class="pagenation__inner-box__btn prev">prev</li>
+                                <li class="pagenation__inner-box__btn next">next</li>
+                              </ul>
+                           </div>`
+    $('.lists').after(pager_templagte);
+  }
+
+  function moveNext(receivedPage) {
+    $('.next').click(function() {
+      receivedPage++
+      page = receivedPage
+      return searchBook(page);
+    });
+  }
+
+  function movePrev(receivedPage) {
+    $('.prev').click(function() {
+      receivedPage--
+      page = receivedPage
+      return searchBook(page);
+    });
+  }
+
+  function confirmationPageNumber(receivedPage, receivedPageMax) {
+    if(receivedPage === 1 && receivedPage === receivedPageMax) {
+      $('.prev, .next').addClass('disabled');
+    } else if(receivedPage === 1) {
+      $('.prev').addClass('disabled');
+    } else if(receivedPage === receivedPageMax) {
+      $('.next').addClass('disabled');
+    }
+  }
+
   $('#search-books').on('click',function() {
     searchBook(1);
   })
+
 });
