@@ -1,5 +1,22 @@
 $(function () {
-  //検索機能
+  var currentPage = null;
+  var pageMax = null;
+
+  $('#search-books').on('click',function() {
+    currentPage = 1;
+    searchBook(currentPage);
+  });
+
+  $(document).on('click', '.prev', function() {
+    currentPage--
+    searchBook(currentPage);
+  });
+
+  $(document).on('click', '.next', function() {
+    currentPage++
+    searchBook(currentPage);
+  });
+
   function searchBook(page) {
     var keyWord = $('#entered-word').val();
     $('.lists, .pagenation').empty();
@@ -16,8 +33,8 @@ $(function () {
         hits: 20
       },
     }).done(function(data) {
-      var currentPage = page
-      var pageMax = data.pageCount
+      currentPage = page
+      pageMax = data.pageCount
 
       if(data.count > 0) {
         $.each(data.Items, function() {
@@ -35,8 +52,6 @@ $(function () {
 
         pager();
         confirmationPageNumber(currentPage, pageMax);
-        moveNext(currentPage);
-        movePrev(currentPage);
 
       } else {
         $('.lists').append(`<li class="error-message"><span>!</span>検索結果が見つかりませんでした。</li>`);
@@ -64,22 +79,6 @@ $(function () {
     $('.lists').after(pager_templagte);
   }
 
-  function moveNext(receivedPage) {
-    $('.next').click(function() {
-      receivedPage++
-      page = receivedPage
-      return searchBook(page);
-    });
-  }
-
-  function movePrev(receivedPage) {
-    $('.prev').click(function() {
-      receivedPage--
-      page = receivedPage
-      return searchBook(page);
-    });
-  }
-
   function confirmationPageNumber(receivedPage, receivedPageMax) {
     if(receivedPage === 1 && receivedPage === receivedPageMax) {
       $('.prev, .next').addClass('disabled');
@@ -89,8 +88,4 @@ $(function () {
       $('.next').addClass('disabled');
     }
   }
-
-  $('#search-books').on('click',function() {
-    searchBook(1);
-  })
 });
