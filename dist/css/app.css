@@ -7,10 +7,6 @@ body {
 .no-scroll {
   overflow: hidden; }
 
-.disabled {
-  cursor: default;
-  pointer-events: none; }
-
 .modal, .error-message {
   display: none; }
 
@@ -124,7 +120,7 @@ body {
   .lists__item {
     box-sizing: border-box;
     display: inline-block;
-    width: 24%;
+    width: 25%;
     vertical-align: top;
     text-align: center;
     margin-top: 5%; }
@@ -182,3 +178,9 @@ body {
       cursor: pointer;
       background-color: #7e7d7d;
       color: #fff; }
+
+.disabled {
+  background-color: #7e7d7d;
+  color: #fff;
+  cursor: default;
+  pointer-events: none; }

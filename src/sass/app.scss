@@ -12,10 +12,6 @@ body {
   overflow: hidden;
 }
 
-.disabled {
-  cursor: default;
-  pointer-events: none;
-}
 
 .modal, .error-message {
   display: none;
@@ -151,7 +147,7 @@ body {
   &__item {
     box-sizing: border-box;
     display: inline-block;
-    width: 24%;
+    width: 25%;
     vertical-align: top;
     text-align: center;
     margin-top: 5%;
@@ -223,4 +219,11 @@ body {
       color: $whiteColor;
     }
   }
+}
+
+.disabled {
+  background-color: $textColor;
+  color: $whiteColor;
+  cursor: default;
+  pointer-events: none;
 }
