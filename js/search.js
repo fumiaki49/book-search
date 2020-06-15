@@ -2,24 +2,37 @@ $(function () {
   var currentPage = null;
   var pageMax = null;
   var keyWord = '';
+  var saveKeyword = '';
 
   $('#search-books').on('click',function() {
+    keyWord = $('#entered-word').val();
     currentPage = 1;
-    searchBook(currentPage);
+    searchBook(currentPage, keyWord);
   });
 
   $(document).on('click', '.prev', function() {
+    saveKeyword = keyWord;
     currentPage--
-    searchBook(currentPage);
+    searchBook(currentPage, saveKeyword);
   });
 
   $(document).on('click', '.next', function() {
+    saveKeyword = keyWord;
     currentPage++
-    searchBook(currentPage);
+    searchBook(currentPage, saveKeyword);
   });
 
-  function searchBook(page) {
-    keyWord = $('#entered-word').val();
+  $(document).on('click', '.top-page', function() {
+    saveKeyword = keyWord;
+    searchBook(1, saveKeyword);
+  });
+
+  $(document).on('click', '.last-page', function() {
+    saveKeyword = keyWord;
+    searchBook(pageMax, saveKeyword);
+  });
+
+  function searchBook(page, keyWord) {
     $('.lists, .pagenation').empty();
 
     $.ajax({
@@ -91,8 +104,10 @@ $(function () {
   function pager() {
     var pager_templagte = `<div class="pagenation">
                               <ul class="pagenation__inner-box">
+                                <li class="pagenation__inner-box__btn top-page"> << </li>
                                 <li class="pagenation__inner-box__btn prev">prev</li>
                                 <li class="pagenation__inner-box__btn next">next</li>
+                                <li class="pagenation__inner-box__btn last-page"> >> </li>
                               </ul>
                            </div>`
     $('.lists').after(pager_templagte);
@@ -100,11 +115,11 @@ $(function () {
 
   function confirmationPageNumber(receivedPage, receivedPageMax) {
     if(receivedPage === 1 && receivedPage === receivedPageMax) {
-      $('.prev, .next').addClass('disabled');
+      $('.prev, .next, .top-page, .last-page').addClass('disabled');
     } else if(receivedPage === 1) {
-      $('.prev').addClass('disabled');
+      $('.prev, .top-page').addClass('disabled');
     } else if(receivedPage === receivedPageMax) {
-      $('.next').addClass('disabled');
+      $('.next, .last-page').addClass('disabled');
     }
   };
 });
