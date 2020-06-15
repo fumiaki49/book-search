@@ -180,50 +180,42 @@ body {
   &__item:nth-child(-n+4){
     margin-top: 0;
   }
-  & .error-message {
-    text-align: center;
-    color: $cautionColor;
-    & span {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-      border: 1px solid $cautionColor;
-      border-radius: 50%;
-      padding: 5px;
-      margin-right: 10px;
-    }
+}
+
+.error-message {
+  text-align: center;
+  color: $cautionColor;
+  & span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border: 1px solid $cautionColor;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
   }
 }
 
-.pagenation {
-  width: 80%;
+.show-more {
+  width: 30%;
   margin: 30px auto;
-  &__inner-box {
-    display: flex;
-    justify-content: center;
-    &__btn {
-      font-size: 15px;
-      margin-left: 25px;
-      padding: 15px;
-      color: $textColor;
-      border: 1px solid;
-      transition: 0.3s;
-    }
-    &__btn:first-child {
-      margin-left: 0;
-    }
-    &__btn:hover {
-      cursor: pointer;
-      background-color: $textColor;
-      color: $whiteColor;
-    }
+  text-align: center;
+  &__btn {
+    font-size: 15px;
+    padding: 15px;
+    color: $textColor;
+    border: 1px solid;
+    transition: 0.3s;
+  }
+  &__btn:hover {
+    cursor: pointer;
+    background-color: $textColor;
+    color: $whiteColor;
   }
 }
 
 .disabled {
   background-color: $textColor;
   color: $whiteColor;
-  cursor: default;
-  pointer-events: none;
 }
