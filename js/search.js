@@ -5,36 +5,30 @@ $(function () {
   var saveKeyword = '';
 
   $('#search-books').on('click',function() {
+    $(this).prop('disabled', true);
+    $('.lists').empty();
+    $('.show-more').remove();
     keyWord = $('#entered-word').val();
     currentPage = 1;
     searchBook(currentPage, keyWord);
   });
 
-  $(document).on('click', '.prev', function() {
-    saveKeyword = keyWord;
-    currentPage--
-    searchBook(currentPage, saveKeyword);
-  });
-
-  $(document).on('click', '.next', function() {
-    saveKeyword = keyWord;
-    currentPage++
-    searchBook(currentPage, saveKeyword);
-  });
-
-  $(document).on('click', '.top-page', function() {
-    saveKeyword = keyWord;
-    searchBook(1, saveKeyword);
-  });
-
-  $(document).on('click', '.last-page', function() {
-    saveKeyword = keyWord;
-    searchBook(pageMax, saveKeyword);
+  $(document).on('click', '.show-more__btn', function() {
+    $(this).prop('disabled', true);
+    if($(this).hasClass('disabled')) {
+      swal({
+        icon: 'warning',
+        text: 'これ以上はありません。'
+      });
+    } else {
+      saveKeyword = keyWord;
+      console.log(saveKeyword)
+      currentPage++;
+      searchBook(currentPage, saveKeyword);
+    };
   });
 
   function searchBook(page, keyWord) {
-    $('.lists, .pagenation').empty();
-
     $.ajax({
       url: 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404',
       type: 'GET',
@@ -47,31 +41,19 @@ $(function () {
         hits: 20
       },
     }).done(function(data) {
-      currentPage = page
-      pageMax = data.pageCount
+      currentPage = page;
+      pageMax = data.pageCount;
 
       if(data.count > 0) {
-        $.each(data.Items, function() {
-          var template = `<li class="lists__item">
-                            <div class="lists__item__inner">
-                              <a href="${this.Item.itemUrl}" class="lists__item__link" target="_blank">
-                                <img src="${this.Item.mediumImageUrl}" alt="${this.Item.title}" class="lists__item__img">
-                                <div class="lists__item__detail">作品名：${this.Item.title}</div>
-                                <div class="lists__item__detail">作者　：${this.Item.author}</div>
-                              </a>
-                            </div>
-                          </li>`
-          $('.lists').append(template);
-        });
-
-        pager();
-        confirmationPageNumber(currentPage, pageMax);
-
+        booksList(data.Items);
+        showMoreItem();
+        confirmationPageNumber(currentPage, pageMax)
       } else {
         $('.lists').append(`<li class="error-message"><span>!</span>検索結果が見つかりませんでした。</li>`);
         $('.error-message').stop().fadeIn();
       };
     }).fail(function(error) {
+      $('.lists').empty();
       var errorMessage = '';
       switch(error.status) {
         case 400:
@@ -98,28 +80,43 @@ $(function () {
       };
       $('.lists').append('<li class= "error-message" >' + '<span>!</span>' + errorMessage + '</li>');
       $('.error-message').stop().fadeIn();
-    })
+    }).always(function() {
+      $('#search-books').prop('disabled', false);
+      $('.show-more__btn').prop('disabled', false);
+    });
   };
 
-  function pager() {
-    var pager_templagte = `<div class="pagenation">
-                              <ul class="pagenation__inner-box">
-                                <li class="pagenation__inner-box__btn top-page"> << </li>
-                                <li class="pagenation__inner-box__btn prev">prev</li>
-                                <li class="pagenation__inner-box__btn next">next</li>
-                                <li class="pagenation__inner-box__btn last-page"> >> </li>
-                              </ul>
-                           </div>`
-    $('.lists').after(pager_templagte);
+  function booksList(receivedBooks) {
+    var template = '';
+    $.each(receivedBooks, function(index, product) {
+      template += `<li class="lists__item">
+                        <div class="lists__item__inner">
+                          <a href="${product.Item.itemUrl}" class="lists__item__link" target="_blank">
+                            <img src="${product.Item.mediumImageUrl}" alt="${product.Item.title}" class="lists__item__img">
+                            <div class="lists__item__detail">作品名：${product.Item.title}</div>
+                            <div class="lists__item__detail">作者　：${product.Item.author}</div>
+                          </a>
+                        </div>
+                    </li>`
+    });
+    $('.lists').append(template);
   };
+
+  function showMoreItem() {
+    $('.show-more').remove();
+    var showMore_template = `<div class="show-more">
+                              <div class="show-more__btn">
+                                <p>show more books</p>
+                              </div>
+                             </div>`
+    $('.lists').after(showMore_template);
+  }
 
   function confirmationPageNumber(receivedPage, receivedPageMax) {
     if(receivedPage === 1 && receivedPage === receivedPageMax) {
-      $('.prev, .next, .top-page, .last-page').addClass('disabled');
-    } else if(receivedPage === 1) {
-      $('.prev, .top-page').addClass('disabled');
+      $('.show-more__btn').addClass('disabled');
     } else if(receivedPage === receivedPageMax) {
-      $('.next, .last-page').addClass('disabled');
+      $('.show-more__btn').addClass('disabled');
     }
   };
 });
