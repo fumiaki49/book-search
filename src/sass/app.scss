@@ -12,7 +12,6 @@ body {
   overflow: hidden;
 }
 
-
 .modal, .error-message {
   display: none;
 }
@@ -145,24 +144,27 @@ body {
   height: 100%;
   list-style: none;
   &__item {
-    box-sizing: border-box;
+    
     display: inline-block;
     width: 25%;
     vertical-align: top;
     text-align: center;
     margin-top: 5%;
-    &__inner {
+    &__link {
+      box-sizing: border-box;
+      display: block;
+      text-decoration: none;
       width: 100%;
       max-width: 200px;
       margin: 0 auto;
-    }
-    &__link {
-      display: block;
-      text-decoration: none;
+      padding: 10px;
+      border: 1px solid $themeColor;
+      background-color: $whiteColor;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.4); ;
       transition: 0.3s;
     }
     &__link:hover {
-      opacity: 0.7;
+      transform: translateY(-5px);
     }
     &__img {
       margin-bottom: 20px;

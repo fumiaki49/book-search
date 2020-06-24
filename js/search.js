@@ -90,13 +90,11 @@ $(function () {
     var template = '';
     $.each(receivedBooks, function(index, product) {
       template += `<li class="lists__item">
-                        <div class="lists__item__inner">
-                          <a href="${product.Item.itemUrl}" class="lists__item__link" target="_blank">
-                            <img src="${product.Item.mediumImageUrl}" alt="${product.Item.title}" class="lists__item__img">
-                            <div class="lists__item__detail">作品名：${product.Item.title}</div>
-                            <div class="lists__item__detail">作者　：${product.Item.author}</div>
-                          </a>
-                        </div>
+                        <a href="${product.Item.itemUrl}" class="lists__item__link" target="_blank">
+                          <img src="${product.Item.mediumImageUrl}" alt="${product.Item.title}" class="lists__item__img">
+                          <div class="lists__item__detail">作品名：${product.Item.title}</div>
+                          <div class="lists__item__detail">作者　：${product.Item.author}</div>
+                        </a>
                     </li>`
     });
     $('.lists').append(template);
