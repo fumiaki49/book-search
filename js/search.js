@@ -103,7 +103,7 @@ $(function () {
   function showMoreItem() {
     $('.show-more').remove();
     var showMore_template = `<div class="show-more">
-                               <button class="show-more__btn btn-default">show more books</button>
+                               <button class="show-more__btn btn-default is-full-width">show more books</button>
                              </div>`
     $('.lists').after(showMore_template);
   }
