@@ -12,41 +12,82 @@ body {
   overflow: hidden;
 }
 
-.modal, .error-message {
+// 共通部分
+.is-hide {
   display: none;
 }
 
-.header {
+.is-full-width {
   width: 100%;
-  height: 100px;
+}
+
+.is-align-center {
+  text-align: center;
+}
+
+.circle-item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.header, .btn-default, .modal__content__close-btn:hover {
   color: $whiteColor;
   background-color: $themeColor;
+}
+
+.btn-default {
+  width: 80px;
+  font-size: 15px;
   text-align: center;
+}
+
+.lists__item__link, .search__inputArea {
+  border: 1px solid $themeColor;
+}
+
+.modal-show, .modal__content__close-btn, .show-more__btn {
+  cursor: pointer;
+}
+
+.search__inputArea__btn:hover, .show-more__btn:hover {
+  opacity: 0.7;
+}
+
+.show-more__btn, .search__inputArea__btn {
+  transition: opacity 0.3s;
+}
+
+.modal-show, .modal__content__close-btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+// ヘッダー
+.header {
+  height: 100px;
   .modal-show {
     width: 50px;
     height: 50px;
     line-height: 50px;
-    border: 1px solid;
-    border-radius: 50%;
     position: absolute;
     right: 5%;
     top: 25px;
-    transition: background-color 0.3s, color 0.3s;
   }
   .modal-show:hover {
-    cursor: pointer;
     color: $themeColor;
     background-color: $whiteColor;
   }
   .site-title {
     font-size: 30px;
     line-height: 100px;
-    
   }
 }
 
+// モーダル
 .modal {
-  width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
@@ -58,42 +99,28 @@ body {
     padding: 5%;
     color: $textColor;
     background-color: $grayColor;
-    box-shadow: 0 1px 5px $shadowColor;
     margin: 0 auto;
     margin-top: 5%;
     position: relative;
     &__close-btn {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      border: 1px solid;
-      border-radius: 50%;
+      color: $themeColor;
       position: absolute;
       top: 5%;
       right: 5%;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    &__close-btn:hover {
-      cursor: pointer;
-      color: $whiteColor;
-      background-color: $textColor;
     }
     &__textBox__greet {
       font-size: 20px;
-      margin-bottom: 7%;
     }
     &__textBox__info {
+      margin-top: 20px;
       font-size: 15px;
       line-height: 35px;  
     }
   }
 }
 
-
+// 検索バー
 .search {
-  height: 100px;
-  width: 100%;
   background-color: $whiteColor;
   box-shadow: 0 1px 5px $shadowColor;
   position: absolute;
@@ -102,29 +129,12 @@ body {
     margin: 25px auto;
   }
   &__inputArea {
-    width: 100%;
     display: flex;
     &__inputWord {
-      width: 95%;
       padding: 10px;
-      border: 1px solid;
-      border-color: $themeColor;
     }
     &__btn {
-      background-color: $themeColor;
-      border-color: $themeColor;
-      color: $whiteColor;
-      font-size: 15px;
-      transition: 0.3s;
       padding: 0 6px;
-    }
-    &__inputWord, &__btn:focus {
-      outline: none;
-    }
-    &__btn:hover {
-      cursor: pointer;
-      background-color: #6bbaee;
-      border-color: #6bbaee;
     }
   }
 }
@@ -135,41 +145,39 @@ body {
   z-index: 10;
 }
 
+// 検索結果表示欄
 .lists {
-  margin-top: 15%;
-  width: 100%;
+  margin-top: 10%;
   height: 100%;
-  list-style: none;
   &__item {
-    
     display: inline-block;
     width: 25%;
     vertical-align: top;
-    text-align: center;
     margin-top: 5%;
     &__link {
       display: block;
       max-width: 200px;
       margin: 0 auto;
-      padding: 10px;
-      border: 1px solid $themeColor;
       background-color: $whiteColor;
-      box-shadow: 5px 5px 10px $shadowColor;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     &__link:hover {
       transform: translateY(-5px);
+      box-shadow: 5px 5px 10px $shadowColor;
     }
     &__img {
       margin-bottom: 20px;
-      width: 100%;
-      max-width: 150px;
     }
     &__detail {
+      padding: 0 10px;
       font-size: 12px;
       margin-bottom: 10px;
       color: $textColor;
-      text-align: left;
+      & span {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
     }
   }
   &__item:nth-child(-n+4){
@@ -177,35 +185,21 @@ body {
   }
 }
 
+// エラーメッセージ
 .error-message {
-  text-align: center;
   color: $cautionColor;
   & span {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border: 1px solid;
-    border-radius: 50%;
     margin-right: 10px;
   }
 }
 
+// show-moreボタン
 .show-more {
   width: 30%;
   margin: 30px auto;
-  text-align: center;
   &__btn {
-    font-size: 15px;
-    padding: 15px;
-    color: $textColor;
-    border: 1px solid;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  &__btn:hover {
-    cursor: pointer;
-    background-color: $textColor;
-    color: $whiteColor;
+    width: 100%;
+    padding: 15px 0;
   }
 }
 

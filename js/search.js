@@ -49,7 +49,7 @@ $(function () {
         showMoreItem();
         confirmationPageNumber(currentPage, pageMax)
       } else {
-        $('.lists').append(`<li class="error-message"><span>!</span>検索結果が見つかりませんでした。</li>`);
+        $('.lists').append(`<li class="error-message is-align-center is-hide"><span class="circle-item">!</span>検索結果が見つかりませんでした。</li>`);
         $('.error-message').stop().fadeIn();
       };
     }).fail(function(error) {
@@ -78,7 +78,7 @@ $(function () {
           errorMessage += "予期せぬエラーが発生しました。";
           break;
       };
-      $('.lists').append('<li class= "error-message" >' + '<span>!</span>' + errorMessage + '</li>');
+      $('.lists').append('<li class= "error-message is-align-center is-hide" >' + '<span class="circle-item">!</span>' + errorMessage + '</li>');
       $('.error-message').stop().fadeIn();
     }).always(function() {
       $('#search-books').prop('disabled', false);
@@ -91,9 +91,9 @@ $(function () {
     $.each(receivedBooks, function(index, product) {
       template += `<li class="lists__item">
                         <a href="${product.Item.itemUrl}" class="lists__item__link" target="_blank">
-                          <img src="${product.Item.mediumImageUrl}" alt="${product.Item.title}" class="lists__item__img">
-                          <div class="lists__item__detail">作品名：${product.Item.title}</div>
-                          <div class="lists__item__detail">作者　：${product.Item.author}</div>
+                          <img src="${product.Item.mediumImageUrl}" alt="${product.Item.title}" class="lists__item__img is-full-width">
+                          <div class="lists__item__detail is-align-center"><span>作品名</span><br>${product.Item.title}</div>
+                          <div class="lists__item__detail is-align-center"><span>作者</span><br>${product.Item.author}</div>
                         </a>
                     </li>`
     });
@@ -103,9 +103,7 @@ $(function () {
   function showMoreItem() {
     $('.show-more').remove();
     var showMore_template = `<div class="show-more">
-                              <div class="show-more__btn">
-                                <p>show more books</p>
-                              </div>
+                               <button class="show-more__btn btn-default">show more books</button>
                              </div>`
     $('.lists').after(showMore_template);
   }

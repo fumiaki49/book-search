@@ -12,14 +12,14 @@
   <title>search-books</title>
 </head>
 <body>
-  <header class="header">
-    <p class = "modal-show">?</p>
+  <header class="header is-full-width is-align-center">
+    <div class = "modal-show circle-item">?</div>
     <h1 class = "site-title">Search Books</h1>
   </header>
 
-  <div class="modal">
+  <div class="modal is-full-width is-hide">
     <div class="modal__content">
-      <div class="modal__content__close-btn" id="close-modal-btn">X</div>
+      <div class="modal__content__close-btn is-align-center circle-item" id="close-modal-btn">X</div>
       <div class="modal__content__textBox">
         <h1 class="modal__content__textBox__greet">Search Booksへようこそ。</h1>
         <p class="modal__content__textBox__info">
@@ -32,15 +32,15 @@
     </div>
   </div>
 
-  <div class="search">
+  <div class="search is-full-width">
     <div class="search__inner">
       <div class="search__inputArea">
-        <input type="text" class="search__inputArea__inputWord" id="entered-word" placeholder="enter any books title">
-        <button class="search__inputArea__btn" id="search-books">Search</button>
+        <input type="text" class="search__inputArea__inputWord is-full-width" id="entered-word" placeholder="enter any books title">
+        <button class="search__inputArea__btn btn-default" id="search-books">Search</button>
       </div>
     </div>
   </div>
 
-  <ul class="lists"></ul>
+  <ul class="lists is-full-width"></ul>
 </body>
 </html>
