@@ -182,14 +182,12 @@ body {
       }
     }
   }
-  &__item:nth-child(-n+4){
-    margin-top: 0;
-  }
 }
 
 // エラーメッセージ
 .error-message {
   color: $cautionColor;
+  padding-top: 100px;
   & span {
     display: inline-block;
     margin-right: 10px;

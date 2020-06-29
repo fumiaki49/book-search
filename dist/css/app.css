@@ -138,11 +138,10 @@ body {
         display: inline-block;
         margin-bottom: 5px;
         font-weight: bold; }
-  .lists__item:nth-child(-n+4) {
-    margin-top: 0; }
 
 .error-message {
-  color: #f80b0b; }
+  color: #f80b0b;
+  padding-top: 100px; }
   .error-message span {
     display: inline-block;
     margin-right: 10px; }
