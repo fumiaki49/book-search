@@ -12,7 +12,7 @@
     .lists__item:nth-child(-n+3) {
       margin-top: 0; }
   .show-more {
-    width: 70%; } }
+    width: 60%; } }
 
 @media screen and (max-width: 480px) {
   .search__inner {
@@ -29,6 +29,4 @@
     line-height: 30px;
     top: 37px; }
   .modal__content {
-    width: 90%; }
-  .show-more {
-    width: 70%; } }
+    width: 90%; } }
