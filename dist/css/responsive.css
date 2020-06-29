@@ -28,5 +28,7 @@
     height: 30px;
     line-height: 30px;
     top: 37px; }
+  .show-more {
+    width: 80%; }
   .modal__content {
     width: 90%; } }
