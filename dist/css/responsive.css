@@ -9,8 +9,8 @@
     margin-top: 20%; }
     .lists__item {
       width: 33%; }
-    .lists__item:nth-child(-n+3) {
-      margin-top: 0; }
+      .lists__item:nth-child(-n+3) {
+        margin-top: 0; }
   .show-more {
     width: 60%; } }
 
@@ -21,8 +21,8 @@
     margin-top: 30%; }
     .lists__item {
       width: 50%; }
-    .lists__item:nth-child(-n+2) {
-      margin-top: 0; }
+      .lists__item:nth-child(-n+2) {
+        margin-top: 0; }
   .header .modal-show {
     width: 30px;
     height: 30px;

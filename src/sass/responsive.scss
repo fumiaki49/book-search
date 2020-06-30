@@ -11,11 +11,12 @@
     margin-top: 20%;
     &__item {
       width: 33%;
-    }
-    &__item:nth-child(-n+3) {
-      margin-top: 0;
+      &:nth-child(-n+3) {
+        margin-top: 0;
+      }
     }
   }
+
   .show-more {
     width: 60%;
   }
@@ -30,9 +31,9 @@
     margin-top: 30%;
     &__item {
       width: 50%;
-    }
-    &__item:nth-child(-n+2) {
-      margin-top: 0;
+      &:nth-child(-n+2) {
+        margin-top: 0;
+      }
     }
   }
 
