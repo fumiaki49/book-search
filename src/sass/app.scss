@@ -48,15 +48,17 @@ body {
   background-color: $themeColor;
 }
 
-.lists__item__link, .search__inputArea {
+.lists__item__link, .search__input-area {
   border: 1px solid $themeColor;
 }
 
-.search__inputArea__btn:hover, .show-more__btn:hover {
-  opacity: 0.7;
+.search__input-area__btn, .show-more__btn {
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
-.show-more__btn, .search__inputArea__btn {
+.show-more__btn, .search__input-area__btn {
   transition: opacity 0.3s;
 }
 
@@ -132,9 +134,9 @@ body {
     width: 80%;
     margin: 25px auto;
   }
-  &__inputArea {
+  &__input-area {
     display: flex;
-    &__inputWord {
+    &__input-word {
       padding: 10px;
     }
     &__btn {

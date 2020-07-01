@@ -35,13 +35,13 @@ body {
   color: #fff;
   background-color: #39a3e9; }
 
-.lists__item__link, .search__inputArea {
+.lists__item__link, .search__input-area {
   border: 1px solid #39a3e9; }
 
-.search__inputArea__btn:hover, .show-more__btn:hover {
+.search__input-area__btn:hover, .show-more__btn:hover {
   opacity: 0.7; }
 
-.show-more__btn, .search__inputArea__btn {
+.show-more__btn, .search__input-area__btn {
   transition: opacity 0.3s; }
 
 .modal-show, .modal button {
@@ -99,11 +99,11 @@ body {
   .search__inner {
     width: 80%;
     margin: 25px auto; }
-  .search__inputArea {
+  .search__input-area {
     display: flex; }
-    .search__inputArea__inputWord {
+    .search__input-area__input-word {
       padding: 10px; }
-    .search__inputArea__btn {
+    .search__input-area__btn {
       padding: 0 6px; }
 
 .stickItem {
