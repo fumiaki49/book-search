@@ -22,7 +22,6 @@ $(function () {
       });
     } else {
       saveKeyword = keyWord;
-      console.log(saveKeyword)
       currentPage++;
       searchBook(currentPage, saveKeyword);
     };
