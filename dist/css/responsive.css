@@ -4,11 +4,10 @@
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
   .lists {
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 20%; }
+    margin-top: 20%;
+    justify-content: space-evenly; }
     .lists__item {
-      width: 33%; }
+      width: 30%; }
       .lists__item:nth-child(-n+3) {
         margin-top: 0; }
   .show-more {
@@ -18,9 +17,10 @@
   .search__inner {
     margin: 15px auto; }
   .lists {
-    margin-top: 30%; }
+    margin-top: 30%;
+    justify-content: space-evenly; }
     .lists__item {
-      width: 50%; }
+      width: 45%; }
       .lists__item:nth-child(-n+2) {
         margin-top: 0; }
   .header .modal-show {

@@ -6,11 +6,10 @@
 
 @media screen and (max-width: 896px) and (min-width: 481px) {
   .lists {
-    width: 95%;
-    margin: 0 auto;
     margin-top: 20%;
+    justify-content: space-evenly;
     &__item {
-      width: 33%;
+      width: 30%;
       &:nth-child(-n+3) {
         margin-top: 0;
       }
@@ -29,8 +28,9 @@
   
   .lists {
     margin-top: 30%;
+    justify-content: space-evenly;
     &__item {
-      width: 50%;
+      width: 45%;
       &:nth-child(-n+2) {
         margin-top: 0;
       }

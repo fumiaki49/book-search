@@ -39,6 +39,10 @@ body {
   border-radius: 50%;
 }
 
+.modal__content, .modal__content__inner, .lists__item__link, .error-message {
+  margin: 0 auto;
+}
+
 .header, .btn-default, .modal button:hover {
   color: $whiteColor;
   background-color: $themeColor;
@@ -93,11 +97,9 @@ body {
     width: 400px;
     color: $textColor;
     background-color: $grayColor;
-    margin: 0 auto;
     margin-top: 10%;
     &__inner {
       width: 80%;
-      margin: 0 auto;
       &__top-area {
         text-align: right;
         margin-right: -28px;
@@ -150,16 +152,14 @@ body {
 // 検索結果表示欄
 .lists {
   margin-top: 10%;
-  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
   &__item {
-    display: inline-block;
     width: 25%;
-    vertical-align: top;
     margin-top: 5%;
     &__link {
       display: block;
       max-width: 200px;
-      margin: 0 auto;
       background-color: $whiteColor;
       transition: transform 0.3s, box-shadow 0.3s;
     }
