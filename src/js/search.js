@@ -1,8 +1,8 @@
 $(function () {
-  var currentPage = null;
-  var pageMax = null;
-  var keyWord = '';
-  var saveKeyword = '';
+  let currentPage = null;
+  let pageMax = null;
+  let keyWord = '';
+  let saveKeyword = '';
 
   $('#search-books').on('click',function() {
     $(this).prop('disabled', true);
@@ -24,7 +24,7 @@ $(function () {
       saveKeyword = keyWord;
       currentPage++;
       searchBook(currentPage, saveKeyword);
-    };
+    }
   });
 
   function searchBook(page, keyWord) {
@@ -46,14 +46,14 @@ $(function () {
       if(data.count > 0) {
         booksList(data.Items);
         showMoreItem();
-        confirmationPageNumber(currentPage, pageMax)
+        confirmationPageNumber(currentPage, pageMax);
       } else {
         $('.lists').append(`<li class="error-message is-align-center is-hide"><span class="circle-item">!</span>検索結果が見つかりませんでした。</li>`);
         $('.error-message').stop().fadeIn();
-      };
+      }
     }).fail(function(error) {
       $('.lists').empty();
-      var errorMessage = '';
+      let errorMessage = '';
       switch(error.status) {
         case 400:
           errorMessage += "キーワードは一文字以上でお願いします。";
@@ -76,17 +76,17 @@ $(function () {
         default:
           errorMessage += "予期せぬエラーが発生しました。";
           break;
-      };
-      $('.lists').append('<li class= "error-message is-align-center is-hide" >' + '<span class="circle-item">!</span>' + errorMessage + '</li>');
+      }
+      $('.lists').append(`<li class= "error-message is-align-center is-hide" ><span class="circle-item">!</span>${errorMessage}</li>`);
       $('.error-message').stop().fadeIn();
     }).always(function() {
       $('#search-books').prop('disabled', false);
       $('.show-more__btn').prop('disabled', false);
     });
-  };
+  }
 
   function booksList(receivedBooks) {
-    var template = '';
+    let template = '';
     $.each(receivedBooks, function(index, product) {
       template += `<li class="lists__item">
                         <a href="${product.Item.itemUrl}" class="lists__item__link" target="_blank">
@@ -94,16 +94,16 @@ $(function () {
                           <div class="lists__item__detail is-align-center"><span>作品名</span><br>${product.Item.title}</div>
                           <div class="lists__item__detail is-align-center"><span>作者</span><br>${product.Item.author}</div>
                         </a>
-                    </li>`
+                    </li>`;
     });
     $('.lists').append(template);
-  };
+  }
 
   function showMoreItem() {
     $('.show-more').remove();
-    var showMore_template = `<div class="show-more">
+    let showMore_template = `<div class="show-more">
                                <button class="show-more__btn btn-default is-full-width">show more books</button>
-                             </div>`
+                             </div>`;
     $('.lists').after(showMore_template);
   }
 
@@ -113,5 +113,5 @@ $(function () {
     } else if(receivedPage === receivedPageMax) {
       $('.show-more__btn').addClass('disabled');
     }
-  };
+  }
 });

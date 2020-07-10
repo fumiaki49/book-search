@@ -1,8 +1,8 @@
 $(function() {
   //スクロール
   $(window).scroll(function() {
-    var scroll = $(this).scrollTop();
-    var headerBottom = $('header').height();
+    let scroll = $(this).scrollTop();
+    let headerBottom = $('header').height();
     if(scroll > headerBottom) {
       $('.search').addClass('stickItem');
     } else {
@@ -18,5 +18,5 @@ $(function() {
   $('#close-modal-btn').click(function() {
     $('.modal').fadeOut();
     $('html, body').removeClass('no-scroll');
-  })
+  });
 });
