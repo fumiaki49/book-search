@@ -14,3 +14,4 @@
 - js / jQuery
 - gulp-sass
 - webpack
+- babel-loader
