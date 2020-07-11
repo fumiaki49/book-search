@@ -1,7 +1,8 @@
 # 書籍検索アプリ
+- URL： https://fumiaki49.github.io/book-search/dist/index.html
+
 ## 概要
 - 楽天ブックス書籍検索APIを使用して作成した書籍検索アプリです。WebApiやajax通信への理解を深める目的で作成しました。
-- URL： https://fumiaki49.github.io/book-search/dist/index.html
 
 ## 機能
 - 書籍検索機能
