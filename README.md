@@ -1,4 +1,5 @@
 # 書籍検索アプリ
+- 制作期間: 約２週間
 - URL： https://fumiaki49.github.io/book-search/dist/index.html
 
 ## 概要
